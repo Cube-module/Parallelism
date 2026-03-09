@@ -1,0 +1,3 @@
+G:/Repositories/Parallelism/2/task2/build/CMakeFiles/main.dir
+G:/Repositories/Parallelism/2/task2/build/CMakeFiles/edit_cache.dir
+G:/Repositories/Parallelism/2/task2/build/CMakeFiles/rebuild_cache.dir

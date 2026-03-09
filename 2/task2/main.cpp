@@ -43,18 +43,26 @@ int main(int argc, char* argv[]){
     double (*funk)(double);
     funk = &f;
 
-    auto start = std::chrono::high_resolution_clock::now();
+    double res =0; // результат
+    double time;
 
-    double res = integrate_omp(funk, a, b, steps);
 
-    auto end = std::chrono::high_resolution_clock::now();
-    double elapsed = std::chrono::duration<double>(end - start).count();
+    for(int i=0; i<50; i++){
+        auto start = std::chrono::high_resolution_clock::now();
+
+        res = integrate_omp(funk, a, b, steps);
+
+        auto end = std::chrono::high_resolution_clock::now();
+        time += std::chrono::duration<double>(end - start).count();
+    }
     
-    std::cout << "Time: " << elapsed << std::endl;
+    double T = time/50;
 
-    double T1 = 2.11072;
-    double S = T1/elapsed;
+    double T1 = 1.5051;
+    double S = T1/T;
 
+    std::cout << "T1: " << T1 << "\n";
+    std::cout << "T: " << T << "\n";
     std::cout << "S: " << S << "\n";
 
     return 0;

@@ -12,36 +12,43 @@ int main(int argc, char* argv[]){
     std::vector<double> A(N*N); // матрица
     std::vector<double> x(N); // вектор
     std::vector<double> y(N); // результат
+    double time;
 
-    auto start = std::chrono::high_resolution_clock::now();
+    for(int rt=0; rt<50; rt++){
 
-    // инициализирую матрицу и вектор
-    #pragma omp parallel for schedule(static)
-    for(int i=0; i<N; i++){
-        x[i] = 2.0;
-        for(int j=0; j<N; j++){
-            A[i*N+j] = 1.0;
+        auto start = std::chrono::high_resolution_clock::now();
+
+        // инициализирую матрицу и вектор
+        #pragma omp parallel for schedule(static)
+        for(int i=0; i<N; i++){
+            x[i] = 2.0;
+            for(int j=0; j<N; j++){
+                A[i*N+j] = 1.0;
+            }
         }
+        
+        // перемножение матрицы на вектор
+        #pragma omp parallel for schedule(static)
+        for(int i=0; i<N; i++){
+            y[i] = 0.0;
+            for(int j=0; j<N; j++){
+                y[i] += A[i*N+j] * x[j];
+            }
+        }
+
+        auto end = std::chrono::high_resolution_clock::now();
+        time += std::chrono::duration<double>(end - start).count();
     }
     
-    // перемножение матрицы на вектор
-    #pragma omp parallel for schedule(static)
-    for(int i=0; i<N; i++){
-        y[i] = 0.0;
-        for(int j=0; j<N; j++){
-            y[i] += A[i*N+j] * x[j];
-        }
-    }
-
-    auto end = std::chrono::high_resolution_clock::now();
-    double elapsed = std::chrono::duration<double>(end - start).count();
-
-    std::cout << "Time: " << elapsed << "\n";
+    double T = time/50;
 
     // ускорение
-    double T1 = (35.5907 + 37.8646)/2;
-    double S = T1/elapsed;
+    // double T1 = 4.14603; 20000
+    double T1 = 26.7334; // 40000
+    double S = T1/T;
 
+    std::cout << "T1: " << T1 << "\n";
+    std::cout << "T: " << T << "\n";
     std::cout << "S: " << S << "\n";
 
     return 0;
