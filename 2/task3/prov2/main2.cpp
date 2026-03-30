@@ -137,7 +137,7 @@ int main(int argc, char* argv[]){
     }
     
     // Теперь записываем в файл вместе с остальным
-    fout << N << " " << u << " " << T << "\n";
+    fout << N << " " << u << " " << T << " " << mode << " " << chunk << "\n";
        
     return 0;
 }

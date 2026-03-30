@@ -32,6 +32,7 @@ plt.title("Speedup vs Threads")
 plt.legend()
 plt.grid()
 
+plt.savefig("task2/prov/graph1.png")
 plt.show()
 
 #  ------------------------------------------------------------------------ Эффективность 
@@ -42,7 +43,7 @@ ideal_E = [1, 1 , 1 ,1 ,1 ,1 ,1 ,1]
 
 plt.figure()
 
-plt.plot(threads_40, E_40, marker='o', label="N=40000")
+plt.plot(threads_40, E_40, marker='o', label="N=40000000")
 
 # идеальная линия
 plt.plot(threads_40, ideal_E, linestyle='--', label="Ideal (E=1)")
@@ -52,6 +53,8 @@ plt.ylabel("Effectivity")
 plt.title("Effectivity vs Threads")
 plt.legend()
 plt.grid()
+
+plt.savefig("task2/prov/graph2.png")
 
 plt.show()
 

@@ -8,27 +8,27 @@ double f(double x){
     return exp(-x*x);
 }
 
-double integrate_omp(double (*funk)(double), double a, double b, int steps){
+    double integrate_omp(double (*funk)(double), double a, double b, int steps){
 
-    double dx = (b-a)/steps;
-    // double res = 0;
-    double sum = 0;
+        double dx = (b-a)/steps;
+        // double res = 0;
+        double sum = 0;
 
-    #pragma omp parallel
-    {
-        double local_sum = 0.0;
+        #pragma omp parallel
+        {
+            double local_sum = 0.0;
 
-        #pragma omp for
-        for (int i=0; i<steps; i++){
-            local_sum += funk(a+i*dx) * dx;
+            #pragma omp for
+            for (int i=0; i<steps; i++){
+                local_sum += funk(a+i*dx) * dx;
+            }
+
+            #pragma omp atomic
+            sum+=local_sum;
         }
 
-        #pragma omp atomic
-        sum+=local_sum;
+        return sum;
     }
-
-    return sum;
-}
 
 
 int main(int argc, char* argv[]){
@@ -47,7 +47,7 @@ int main(int argc, char* argv[]){
     funk = &f;
 
     double res =0; // результат
-    double time;
+    double time = 0;
 
 
     for(int i=0; i<50; i++){

@@ -8,15 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "G:/Repositories/Parallelism/2/task1/prov/pr.cpp" "CMakeFiles/pr.dir/pr.cpp.obj" "gcc" "CMakeFiles/pr.dir/pr.cpp.obj.d"
+  "/home/a.bakirov/Parallelism/2/task1/prov/pr.cpp" "CMakeFiles/pr.dir/pr.cpp.o" "gcc" "CMakeFiles/pr.dir/pr.cpp.o.d"
   )
 
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
-  )
-
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

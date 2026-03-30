@@ -1,4 +1,4 @@
-G:/Repositories/Parallelism/2/task3/prov1/build/CMakeFiles/main2.dir
-G:/Repositories/Parallelism/2/task3/prov1/build/CMakeFiles/main1.dir
-G:/Repositories/Parallelism/2/task3/prov1/build/CMakeFiles/edit_cache.dir
-G:/Repositories/Parallelism/2/task3/prov1/build/CMakeFiles/rebuild_cache.dir
+/home/a.bakirov/Parallelism/2/task3/prov1/build/CMakeFiles/main2.dir
+/home/a.bakirov/Parallelism/2/task3/prov1/build/CMakeFiles/main1.dir
+/home/a.bakirov/Parallelism/2/task3/prov1/build/CMakeFiles/edit_cache.dir
+/home/a.bakirov/Parallelism/2/task3/prov1/build/CMakeFiles/rebuild_cache.dir

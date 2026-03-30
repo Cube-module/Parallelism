@@ -100,6 +100,7 @@ int main(int argc, char* argv[]){
 
     // Теперь записываем в файл вместе с остальным
     fout << N << " " << k << " " << T << " " << T_init << "\n";
+    std::cout << time1;
     
     return 0;
 }

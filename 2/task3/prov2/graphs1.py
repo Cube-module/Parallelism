@@ -17,11 +17,11 @@ T1_20 = times_20[0]
 
 S_20 = [T1_20 / t for t in times_20]
 
-ideal_S = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+ideal_S = list(range(1, 81))
 #  ------------------------------------------------------------------------ Ускорение
 plt.figure()
 
-plt.plot(threads_20, S_20, marker='o', label="N=200")
+plt.plot(threads_20, S_20, marker='o', label="N=1000")
 
 # идеальная линия
 plt.plot(ideal_S, ideal_S, linestyle='--', label="Ideal (S=k)")
@@ -32,17 +32,18 @@ plt.title("Speedup vs Threads")
 plt.legend()
 plt.grid()
 
+plt.savefig("task3/prov2/graph1.png")
 plt.show()
 
 #  ------------------------------------------------------------------------ Эффективность 
 
 E_20 = [s / k for s, k in zip(S_20, threads_20)]
 
-ideal_E = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+ideal_E = [1] * 80
 
 plt.figure()
 
-plt.plot(threads_20, E_20, marker='o', label="N=200")
+plt.plot(threads_20, E_20, marker='o', label="N=1000")
 
 # идеальная линия
 plt.plot(threads_20, ideal_E, linestyle='--', label="Ideal (E=1)")
@@ -53,4 +54,5 @@ plt.title("Effectivity vs Threads")
 plt.legend()
 plt.grid()
 
+plt.savefig("task3/prov2/graph2.png")
 plt.show()

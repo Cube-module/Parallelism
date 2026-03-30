@@ -12,7 +12,7 @@ chank2 = []
 chank3 = []
 cnt =0
 
-with open("task3/prov1/results2.txt") as f:
+with open("task3/prov2/results2.txt") as f:
     next(f)  # пропускаем заголовок
     for line in f: 
         N, k, T, mode, chunk = map(float, line.split())
@@ -34,7 +34,7 @@ with open("task3/prov1/results2.txt") as f:
 
 # Рассчитаем эффективность: E = T0 / (T * k)
 # Для этого нужно знать k для каждой строки, допустим фиксируем k=8 (или можно добавить список K для каждого режима)
-k_val = 4  # например, если анализируем для k=8 потоков
+k_val = 11  # например, если анализируем для k=8 потоков
 
 E1 = [T_0 / (t * k_val) for t in T1]
 E2 = [T_0 / (t * k_val) for t in T2]
@@ -64,4 +64,6 @@ plt.ylabel("Efficiency")
 plt.title("Efficiency vs Chunk size")
 plt.grid(True)
 plt.legend()
+
+plt.savefig("task3/prov2/graph3.png")
 plt.show()

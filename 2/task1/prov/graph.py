@@ -47,6 +47,7 @@ plt.title("Speedup vs Threads")
 plt.legend()
 plt.grid()
 
+plt.savefig("task1/prov/graph1.png")
 plt.show()
 
 #  ------------------------------------------------------------------------ Эффективность 
@@ -70,6 +71,7 @@ plt.title("Effectivity vs Threads")
 plt.legend()
 plt.grid()
 
+plt.savefig("task1/prov/graph2.png")
 plt.show()
 
 #  ------------------------------------------------------------------------ Инициализация
@@ -92,5 +94,7 @@ plt.ylabel("Speedup_init")
 plt.title("Speedup_init vs Threads")
 plt.legend()
 plt.grid()
+
+plt.savefig("task1/prov/graph3.png")
 
 plt.show()

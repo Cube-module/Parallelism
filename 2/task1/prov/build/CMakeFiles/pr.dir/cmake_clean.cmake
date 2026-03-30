@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/pr.dir/pr.cpp.obj"
-  "CMakeFiles/pr.dir/pr.cpp.obj.d"
-  "libpr.dll.a"
-  "pr.exe"
-  "pr.exe.manifest"
+  "CMakeFiles/pr.dir/pr.cpp.o"
+  "CMakeFiles/pr.dir/pr.cpp.o.d"
+  "pr"
   "pr.pdb"
 )
 
