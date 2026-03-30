@@ -8,11 +8,13 @@
 
 int main(int argc, char* argv[]){
     auto start1 = std::chrono::high_resolution_clock::now();
-    
-    std::ofstream fout("results.txt", std::ios::app); // file
+
+    std::ofstream fout("results2.txt", std::ios::app); // file
 
     int N = std::stoi(argv[1]);
-    int k = std::stoi(argv[2]);
+    int u = std::stoi(argv[2]);
+
+    omp_set_num_threads(u);
 
     double e = 0.000001;
     double t = 0.01;
@@ -30,15 +32,10 @@ int main(int argc, char* argv[]){
     int max_iter = 1000;
     double time = 0;
 
-
-    omp_set_num_threads(k);
-
     for (int itr=0; itr<50; itr++){
 
-        // A x b
+        // A
         for(int i=0; i<N; i++){
-            x[i]=0;
-            b[i]=N+1;
             for(int j=0; j<N; j++){
                 if (i==j){
                     A[i*N+j] = 2.0;
@@ -49,13 +46,21 @@ int main(int argc, char* argv[]){
             }
         }
 
-        
+        // x
+        for(auto it=x.begin(); it!=x.end(); it++){
+            *it=0;
+        }
+        // b
+        for(auto it=b.begin(); it!=b.end(); it++){
+            *it=N+1;
+        }
 
         double norm_r = 0;
         double norm_b = 0;
+        bool stop = false;
 
         auto start = std::chrono::high_resolution_clock::now();
-        #pragma omp parallel
+        #pragma omp parallel 
         {
             #pragma omp single
             iter = 0;
@@ -87,7 +92,6 @@ int main(int argc, char* argv[]){
                 #pragma omp atomic
                 norm_b += norm_b_loc;
 
-                bool stop = false;
                 #pragma omp single
                 {
                     if (sqrt(norm_r) / sqrt(norm_b) < e)
@@ -117,12 +121,7 @@ int main(int argc, char* argv[]){
         time += std::chrono::duration<double>(end - start).count();        
         
     }
-    
     double T = time/50;
-    
-    auto end1 = std::chrono::high_resolution_clock::now();
-    auto time1 = std::chrono::duration<double>(end1 - start1).count();
-    double T_all = time1 / 50;
 
     // Получаем текущий режим распараллеливания
     omp_sched_t kind;
@@ -138,7 +137,7 @@ int main(int argc, char* argv[]){
     }
     
     // Теперь записываем в файл вместе с остальным
-    fout << N << " " << k << " " << T << " " << mode << " " << chunk << std::endl;
-
+    fout << N << " " << u << " " << T << "\n";
+       
     return 0;
 }
