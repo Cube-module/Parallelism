@@ -1,4 +1,0 @@
-G:/Repositories/Parallelism/2/task3/optimal/build/CMakeFiles/main.dir
-G:/Repositories/Parallelism/2/task3/optimal/build/CMakeFiles/main2.dir
-G:/Repositories/Parallelism/2/task3/optimal/build/CMakeFiles/edit_cache.dir
-G:/Repositories/Parallelism/2/task3/optimal/build/CMakeFiles/rebuild_cache.dir

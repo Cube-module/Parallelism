@@ -16,3 +16,6 @@ option(USE_FLOAT "Type vector" OFF)
 if (USE_FLOAT)
     target_compile_definitions(sinus PRIVATE USE_FLOAT)
 endif()
+
+# cmake -S . -B ./build -DUSE_FLOAT=ON -G "MinGW Makefiles"
+# cmake --build build

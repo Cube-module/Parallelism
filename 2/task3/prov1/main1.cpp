@@ -34,7 +34,7 @@ int main(int argc, char* argv[]){
 
     omp_set_num_threads(k);
 
-    for(int it=0; it<50; it++){
+    for(int it=0; it<25; it++){
 
         auto start2 = std::chrono::high_resolution_clock::now();
         // A
@@ -92,15 +92,15 @@ int main(int argc, char* argv[]){
         time += std::chrono::duration<double>(end - start).count();
     }
 
-    double T = time / 50;
-    double T_init = time_init / 50;
+    double T = time / 25;
+    double T_init = time_init / 25;
 
     auto end1 = std::chrono::high_resolution_clock::now();
     auto time1 = std::chrono::duration<double>(end1 - start1).count();
 
     // Теперь записываем в файл вместе с остальным
     fout << N << " " << k << " " << T << " " << T_init << "\n";
-    std::cout << time1;
+    std::cout << T << "\n";
     
     return 0;
 }

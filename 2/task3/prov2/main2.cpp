@@ -32,7 +32,7 @@ int main(int argc, char* argv[]){
     int max_iter = 1000;
     double time = 0;
 
-    for (int itr=0; itr<50; itr++){
+    for (int itr=0; itr<25; itr++){
 
         // A
         for(int i=0; i<N; i++){
@@ -121,7 +121,7 @@ int main(int argc, char* argv[]){
         time += std::chrono::duration<double>(end - start).count();        
         
     }
-    double T = time/50;
+    double T = time/25;
 
     // Получаем текущий режим распараллеливания
     omp_sched_t kind;

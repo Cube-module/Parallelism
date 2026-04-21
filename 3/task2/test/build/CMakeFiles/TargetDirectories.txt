@@ -1,0 +1,5 @@
+/home/a.bakirov/Parallelism/3/task2/test/build/CMakeFiles/sin_test.dir
+/home/a.bakirov/Parallelism/3/task2/test/build/CMakeFiles/pow_test.dir
+/home/a.bakirov/Parallelism/3/task2/test/build/CMakeFiles/sqrt_test.dir
+/home/a.bakirov/Parallelism/3/task2/test/build/CMakeFiles/edit_cache.dir
+/home/a.bakirov/Parallelism/3/task2/test/build/CMakeFiles/rebuild_cache.dir

@@ -19,7 +19,7 @@ int main(){
     
     if(typeid(Type)==typeid(float)){
         for(int i=0; i<N; i++){
-            Arr[i] = std::sinf(2*PI*i/N);
+            Arr[i] = std::sin(2*PI*i/N);
         }
     }
     else{
@@ -28,7 +28,7 @@ int main(){
         }
     }
 
-    float sum;
+    Type sum = 0;
 
     for(int i=0; i<N; i++){
         sum+=Arr[i];
