@@ -70,3 +70,19 @@ plt.grid()
 plt.savefig("graph2.png")
 plt.show()
 
+#  ------------------------------------------------------------------------ E + T
+
+M_20 = [s * e * 1.5 for s, e in zip(S_20, E_20)]
+
+plt.figure()
+
+plt.plot(threads_20, M_20, marker='o', label="M = S * E")
+
+plt.xlabel("Threads")
+plt.ylabel("Combined metric")
+plt.title("Combined metric vs Threads")
+plt.legend()
+plt.grid()
+
+plt.savefig("graph3.png")
+plt.show()
