@@ -6,6 +6,7 @@
 #include <cmath>
 #include <functional>
 #include <mutex>
+#include <condition_variable>
 
 template<typename T>
 T fun_sin(T arg){
@@ -79,7 +80,7 @@ class Server{
             }
 
             if (!has_task){
-                std::this_thread::sleep_for(std::chrono::milliseconds(1));
+                // std::this_thread::sleep_for(std::chrono::milliseconds(1)); забьем cpu но зато бфстрее =)
                 continue;
             }
 
@@ -113,7 +114,7 @@ class Server{
                 }
             }
 
-            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+            // std::this_thread::sleep_for(std::chrono::milliseconds(1)); аналогично
         }
     }
 };

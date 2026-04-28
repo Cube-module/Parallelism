@@ -57,13 +57,20 @@ plt.grid()
 plt.savefig("task3/prov2/graph2.png")
 plt.show()
 
-#  ------------------------------------------------------------------------ E + T
+#  ------------------------------------------------------------------------ Combined metric: Speedup with thread penalty
 
-M_20 = [s * e * 1.5 for s, e in zip(S_20, E_20)]
+lambda_penalty = 0.6
+
+M_20 = [s - lambda_penalty * k for s, k in zip(S_20, threads_20)]
+
+best_index = M_20.index(max(M_20))
+best_k = threads_20[best_index]
+best_m = M_20[best_index]
 
 plt.figure()
 
-plt.plot(threads_20, M_20, marker='o', label="M = S * E")
+plt.plot(threads_20, M_20, marker='o', label=f"M = S - {lambda_penalty}k")
+plt.axvline(best_k, linestyle='--', label=f"Best k = {best_k}")
 
 plt.xlabel("Threads")
 plt.ylabel("Combined metric")
@@ -73,3 +80,5 @@ plt.grid()
 
 plt.savefig("task3/prov2/graph4.png")
 plt.show()
+
+print("Best k:", best_k, "M:", best_m)
